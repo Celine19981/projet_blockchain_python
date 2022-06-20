@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/celine/projects/projet_blockchain_python'
+make: Leaving directory '/home/celine/projects/projet_blockchain_python'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

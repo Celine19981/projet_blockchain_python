@@ -31,4 +31,3 @@ private:
     string SHA256(string data);
 
 };
-

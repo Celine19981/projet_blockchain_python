@@ -1,11 +1,5 @@
-
-#include "Signature_component.h"
-#include "micro-ecc/uECC.h"
-#include <pybind11/pybind11.h>
-#include <pybind11/stl.h>
 #include <string>
-#include "micro-ecc/uECC_vli.h"
-
+#include "recuperation.h"
 
 //using namespace std;
 
@@ -71,7 +65,7 @@ string Recuperation::Message_Signature(string message, string private_key) {
 
 }
 
-string Recuperation::cl�_public(string message, string public_key, string _signature) {
+string Recuperation::cle_public(string message, string public_key, string _signature) {
     uECC_Curve curve = uECC_secp256k1();
     string dataHashed = SHA256(message);
 
@@ -109,11 +103,11 @@ uint8_t* Recuperation::hex_str_to_uint8(const char* string) {
         char c = string[index];
         int value = 0;
         if (c >= '0' && c <= '9')
-            value = (c - '0');
+            value = c - '0';
         else if (c >= 'A' && c <= 'F')
-            value = (10 + (c - 'A'));
+            value = 10 + c - 'A';
         else if (c >= 'a' && c <= 'f')
-            value = (10 + (c - 'a'));
+            value = 10 + c - 'a';
         else
             return NULL;
 
@@ -155,4 +149,3 @@ PYBIND11_MODULE(Signature_component, m) {
         .def("Message_Signature", &Recuperation::Message_Signature)
         .def("cl�_public", &Recuperation::cl�_public);
 }
-
